@@ -1,5 +1,6 @@
 # 1. Data Basics
 # 1.1 Define the concept of data
+Data is a collection of facts, information, or values that are recorded, stored, or represented in various forms, such as numbers, text, images, sound, or other formats.
 # 1.2 Describe basic data variable types 
 # • boolean
 # • numeric
