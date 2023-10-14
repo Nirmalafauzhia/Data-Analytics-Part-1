@@ -20,50 +20,30 @@
 # 2. Data Manipulation
 # 2.1 Import, store, and export data 
 # Fundamental understanding of ETL:
-• extract
-
-• transform
-
-• load
-
-• common data storage file formats (delimited data files, XML, JSON)
-
+# • extract
+# • transform
+# • load
+# • common data storage file formats (delimited data files, XML, JSON)
 # 2.2 Clean data
 # Purpose and common practices:
-• handling NULL
-
-• special characters
-
-• trimming spaces
-
-• inconsistent formatting
-
-• removing duplicates 
-
-• imputing data
-
-• validating data
-
+# • handling NULL
+# • special characters
+# • trimming spaces
+# • inconsistent formatting
+# • removing duplicates 
+# • imputing data
+# • validating data
 # 2.3 Organize data
 # Purpose and common practices:
-• sorting
-
-• filtering
-
-• slicing
-
-• transposing 
-
-• appending
-
-• truncating
-
+# • sorting
+# • filtering
+# • slicing
+# • transposing 
+# • appending
+# • truncating
 # 2.4 Aggregate data
 # Purpose and common practices:
-• grouping
-
-• joining/merging 
-
-• summarizing
-
-• pivoting
+# • grouping
+# • joining/merging 
+# • summarizing
+# • pivoting
