@@ -4,7 +4,9 @@ Data is a collection of facts, information, or values that are recorded, stored,
 # 1.2 Describe basic data variable types 
 • boolean
 In Python, the bool data type is used to represent boolean values (True, False). Booleans are used to evaluate expressions and return the boolean True or False based on the result of the expression.
+
 x = 10
+
 y = 5
 
 result = x > y
