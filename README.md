@@ -184,16 +184,82 @@ Input:
          
          df['Referal'] = df['Referal'].replace({1.0: 'Use', 0.0: 'Not use'})
 # 2.3 Organize data
-# Purpose and common practices:
-# • sorting
-# • filtering
-# • slicing
-# • transposing 
-# • appending
-# • truncating
+Purpose and common practices:
+# - sorting
+Reordering data based on one or more columns, usually in ascending or descending order.
+
+Example:
+
+Input: 
+
+         data = {'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eve’],
+'Age': [25, 30, 22, 35, 28],
+'Salary': [50000, 60000, 45000, 70000, 55000]}
+
+         sorted_data = sorted(zip(data['Name'], data['Age'],        data['Salary']), key=lambda x: x[1])
+       
+         print("Sorted data by Age:", sorted_data)
+# - filtering
+Selecting a subset of data based on specified criteria.
+
+Example:
+
+Input:
+
+         filtered_data = [(name, age, salary) for name, age, salary in zip(data['Name'], data['Age'], data['Salary']) if age > 25]
+         
+         print("Filtered data:", filtered_data)
+# - slicing
+Extracting a specific range or portion of the data.
+
+Example:
+
+Input:
+
+         sliced_data = (data['Name'][1:3], data['Age'][1:3], data['Salary'][1:3])
+
+         print("Sliced data:", sliced_data)
+# - transposing 
+Changing the orientation of data, such as converting rows to columns or vice versa.
+
+Example:
+
+Input: 
+
+         transposed_data = {'Name': data['Name'], 'Age': data['Age'], 'Salary': data['Salary']}
+         
+         print("Transposed data:", list(zip(*transposed_data.values())))
+# - appending
+Combining or adding new data to an existing dataset.
+
+Example:
+
+Input:
+
+         new_data = {'Name': ['Frank', 'Grace'], 'Age': [29, 32], 'Salary': [52000, 60000]}
+
+         appended_data = {key: data[key] + new_data[key] for key in data}
+
+         print("Appended data:", appended_data)
+# - truncating
+Reducing the data to a specific length or number of rows, often to create smaller subsets of data.
+
+Example:
+
+Input:
+
+         truncated_data = {key: data[key][:3] for key in data}
+
+         print("Truncated data:", truncated_data)
 # 2.4 Aggregate data
 # Purpose and common practices:
 # • grouping
+- Grouping SUM is an aggregation function that calculates the sum of a specific numerical column within each group. When you group data by one or more columns, you can apply the SUM function to find the total sum of a particular numerical value for each group.
+- Grouping COUNT is an aggregation function that counts the number of rows within each group. It is used to determine how many items fall into each group.
+- Grouping AVG is an aggregation function that calculates the average (mean) of a specific numerical column within each group. This function provides the average value of the data in each group. 
 # • joining/merging 
+Combining data from multiple sources or tables using keys or common columns.
 # • summarizing
+Creating summary statistics or aggregations to get an overview of the data, such as calculating totals, averages, or counts.
 # • pivoting
+Restructuring data to transform rows into columns or vice versa, often used for creating summary tables or pivot tables.
