@@ -204,4 +204,170 @@ Creating summary statistics or aggregations to get an overview of the data, such
 Restructuring data to transform rows into columns or vice versa, often used for creating summary tables or pivot tables.
 # 3. Data Cleansing (Online Store Customer Data)
 ## - Import Library and Load Dataset
-First, import the libraries that will be used, including pandas, numpy, matplotlib, seaborn, dan scipy libraries
+First, import the libraries that will be used, including pandas, numpy, matplotlib, seaborn, and scipy libraries
+
+    import pandas as pd
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    from scipy.stats import skew
+    from scipy.stats import boxcox
+Load a CSV file containing datasets from online stores obtained from Kaggle
+
+    df = pd.read_csv('online_store.csv')
+## - Display Dataset and Check Data
+Displays the dataset that hasbeen loaded
+    
+    df.head(10)
+Check data condition
+
+    df.info()
+## - Handling Data Duplication
+Check for duplicate data in the table
+    
+    df.duplicated()
+    df[df.duplicated()]
+Check the number of duplicate data
+
+    df.duplicated().sum()
+Removing the duplicates
+
+    df = df.drop_duplicates()
+Check data in the table after duplicate data has been deleted
+
+    df.duplicated().sum()
+## - Handling Missing Value : Gender Column
+Because the values in the Gender column are in the form of strings or categorical, data cleaning can be done by filling in the rows of data that have null values with the mode of the data in the Gender column. The following are the data cleansing stages of the Gender column.
+Check data rows in the Gender column that have null/NaN values
+
+    df.Gender[df.Gender.isnull()]
+    df['Gender'].isnull().sum()
+Check the amount of data/values in the categories in the Gender column
+
+    df.Gender.value_counts()
+From the proportion of the Gender column, Female is the data that appears most often, so Female is the mode
+
+    val = df.Gender.mode().values[0]
+    df['Gender'] = df.Gender.fillna(val)
+After imputation, it can be seen that the proportions dan data condition have changed
+    
+    df.Gender.value_counts()
+    df.info()
+## - Handling Missing Value : Age Column
+Because the data in the Age column is numeric, we can find a solution to overcome missing values by looking at the histogram. Check the condition of the data distribution by visualizing it using a histogram
+
+    sns.histplot(data=df, x='Age', kde=True)
+    plt.title('Distribusi Usia')
+    plt.show()
+To ensure that the histogram includes skewness or normality, it is necessary to check it using the rules, if:
+● Skewness = 0: Then normally distributed.
+● Skewness > 0: Then more weight in the left tail of the distribution.
+● Skewness < 0: Then more weight in the right tail of the distribution. 
+The checking results will determine how to handle null values in the Age column.
+
+    skewness = skew(df['Age'])
+    print(f"Skewness: {skewness}")
+
+    plt.hist(df['Age'], bins=20)
+    plt.title("Histogram Data")
+    plt.xlabel("Age")
+    plt.ylabel("Frequency")
+    plt.show()
+Because the normality results are distributed with a skewness negative, data cleaning can be done by filling in the rows of data that have null values with the median data in the Age column. 
+
+    val = df.Age.median()
+    df['Age'] = df.Age.fillna(val)
+Check the condition of the data after data cleansing in the Age column, the Age column has now changed its number.
+
+    df.info()
+Checking for outliers in the data
+
+    df.boxplot(column=['Age'])
+    plt.show()
+There are no outliers in the data in the Age column
+## - Handling Missing Value : Employee Status Column
+Because the values in the Employee Status column are in the form of strings or categorical, data cleaning can be done by filling in the rows of data that have null values with the mode of the data in the Employee Status column. The following are the data cleansing stages of the Employee Status column.
+Check data rows in the Employee_status column that have null/NaN values
+
+    df['Employees_status'].isnull().sum()
+Check the amount of data/values in the categories in the Employee_status column
+
+    df.Employees_status.value_counts()
+From the proportion of the Employee Status column, Employees is the data that appears most often, so Employees is the mode
+
+    val = df.Employees_status.mode().values[0]
+    df['Employees_status'] = df.Employees_status.fillna(val)
+After imputation, it can be seen that the proportions and data condition have changed
+
+    df.Employees_status.value_counts()
+    df.info()
+## - Handling Missing Value : Referal Columns
+Because the values in the Referal column are in the form of categorical , data cleaning can be done by filling in the rows of data that have null values with the mode of the data in the Referal column. The following are the data cleansing stages of the Referal column.
+Check data rows in the referal column that have null/NaN values
+
+    df['Referal'].isnull().sum()
+Check the amount of data/values in the categories in the referal column
+
+    df.Referal.value_counts()
+From the proportion of the referal column, use refral code(1) is the data that appears most often, so use refral code(1) is the mode
+
+    val = df.Referal.mode().values[0]
+    df['Referal'] = df.Referal.fillna(val)
+After imputation, it can be seen that the proportions have changed. And check the condition of the data after data cleansing in the referal column
+
+    df.Referal.value_counts()
+    df.info()
+Based on the results of the data inspection, it was found that the referral column used the float data type, this was deemed unsuitable, the data would be easier to understand if converted into a string, where "1.0" means using a referral code, while "0.0" means not using a code referral. This will help people who read the data so that it is easier to understand. 
+Change the referral data type from float to string and replace '1.0' to 'Use' and '0.0' to 'Not Use'
+
+    df['Referal'] = df['Referal'].astype(str)
+    df['Referal'] = df['Referal'].replace({'1.0': 'Use', '0.0': 'Not use'})
+check using df.head() to see whether the data in the referral has been replaced
+
+    df.info()
+then check using df.info() to see the data type that has been changed
+
+    df.head()
+## - Handling Missing Value : Amount Spent Column
+Check the condition of the data distribution by visualizing it using a histogram
+
+    sns.histplot(data=df, x='Amount_spent', kde=True)
+    plt.title('Distribusi Pengeluaran')
+    plt.show()
+To ensure that the histogram includes skewness or normality, it is necessary to check it using the rules, if:
+● Skewness = 0: Then normally distributed.
+● Skewness > 0: Then more weight in the left tail of the distribution.
+● Skewness < 0: Then more weight in the right tail of the distribution.
+The checking results will determine how to handle null values in the Amount_spent column.
+
+    skewness = skew(df['Amount_spent'])
+    print(f"Skewness: {skewness}")
+
+    plt.hist(df['Amount_spent'], bins=20)
+    plt.title("Histogram Data")
+    plt.xlabel("Amount_spent")
+    plt.ylabel("Frequency")
+    plt.show()
+Because the normality results are distributed with a skewness histogram, data cleaning can be done by filling in the rows of data that have null values with the median data in the Amount_spent column. The following are the steps for cleaning data in the Amount_spent column.
+
+    val = df.Amount_spent.median()
+    df['Amount_spent'] = df.Amount_spent.fillna(val)
+Check the condition of the data after data cleansing in the Amount_spent column, the Amount_spent column has now changed its number
+
+    df.info()
+Checking for outliers in the data
+
+    df.boxplot(column=['Amount_spent'])
+    plt.show()
+## - Transaction Date
+Based on the results of the data inspection, it was found that the transaction date column used the string data type, this was deemed unsuitable. For dates, you should use the datetime data type to make it more suitable and easier to manipulate the data.
+Check the data condition before changing the data type on Transaction Date
+
+    df.info()
+change the format from the Transaction Date data type to datetime
+
+    df['Transaction_date'] = pd.to_datetime(df['Transaction_date'], format='%m/%d/%Y')
+    
+    df.info()
+    
+    print(df['Transaction_date'].dtype) 
