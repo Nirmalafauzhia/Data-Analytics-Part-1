@@ -202,3 +202,6 @@ Combining data from multiple sources or tables using keys or common columns.
 Creating summary statistics or aggregations to get an overview of the data, such as calculating totals, averages, or counts.
 ## - pivoting
 Restructuring data to transform rows into columns or vice versa, often used for creating summary tables or pivot tables.
+# 3. Data Cleansing (Online Store Customer Data)
+## - Import Library and Load Dataset
+First, import the libraries that will be used, including pandas, numpy, matplotlib, seaborn, dan scipy libraries
