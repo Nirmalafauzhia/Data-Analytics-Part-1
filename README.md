@@ -76,12 +76,31 @@ Metadata in this context refers to information about the healthcare data. It inc
 
 The healthcare system collects patient records, medical images, sensor data from wearable devices, electronic health records (EHRs), and more.
 # 2. Data Manipulation
+These data manipulation techniques are crucial for data preparation and analysis in various domains, from business analytics to data science and machine learning. They help ensure data quality, consistency, and usability for decision-making and reporting.
 # 2.1 Import, store, and export data 
+Fundamental understanding of ETL (Extract, Transform, Load): ETL is a process used in data management to extract data from various sources, transform it into a consistent format, and load it into a destination such as a data warehouse or a database. It involves the following steps:
 # Fundamental understanding of ETL:
-# • extract
-# • transform
-# • load
-# • common data storage file formats (delimited data files, XML, JSON)
+• extract
+
+extract the file into .csv format
+
+df.to_csv("D:/MyEduSolve/tugas_cleansing.csv")
+
+• transform
+
+df['Referal'] = df['Referal'].astype(str)
+
+df['Referal'] = df['Referal'].replace({'1.0': 'Use', '0.0': 'Not use'})
+
+• load
+
+load a CSV file containing datasets from online stores obtained from Kaggle
+
+df = pd.read_csv('online_store.csv')
+
+• common data storage file formats (delimited data files, XML, JSON)
+
+df = pd.read_csv('online_store.csv')
 # 2.2 Clean data
 # Purpose and common practices:
 # • handling NULL
