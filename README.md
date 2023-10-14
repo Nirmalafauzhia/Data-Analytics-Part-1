@@ -2,9 +2,18 @@
 # 1.1 Define the concept of data
 Data is a collection of facts, information, or values that are recorded, stored, or represented in various forms, such as numbers, text, images, sound, or other formats.
 # 1.2 Describe basic data variable types 
-# • boolean
-# • numeric
-# • string
+• boolean
+In Python, the bool data type is used to represent boolean values (True, False). Booleans are used to evaluate expressions and return the boolean True or False based on the result of the expression.
+x = 10
+y = 5
+
+result = x > y
+print(result)
+print(type(result))
+
+• numeric
+
+• string
 # 1.3 Describe basic structures used in data analytics
 # • tables
 # • rows
