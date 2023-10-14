@@ -30,18 +30,51 @@ print(type(platform))
 
 print(platform)
 # 1.3 Describe basic structures used in data analytics
-# • tables
-# • rows
-# • columns
-# • lists
-# 1.4 Describe data categories
-# • qualitative
-# • quantitative
-# • structured
-# • unstructured
-# • metadata
-# • big data
+• tables
 
+Tables are used to structured data, it is essentially a two-dimensional structure with rows and columns.
+
+• rows
+
+Rows, also known as records or observations, are the horizontal elements in a table.
+
+• columns
+
+Columns, also known as fields or variables, are the vertical elements in a table. Each column represents a specific attribute or piece of information related to the data set.
+
+• lists
+
+While tables are used for structured data, lists are used for storing unstructured or semi-structured data. A list is a collection of items, where each item can be of a different data type or structure. Lists are often used for tasks like storing unstructured text data, logs, or simple collections of values.
+# 1.4 Describe data categories
+• qualitative
+
+Survey responses where participants choose from option like “Yes” or “No”.
+
+• quantitative
+
+Sales data showing the number of products sold and prices.
+
+• structured
+
+- Structured data is data that organized and formatted in a way that easy to read
+
+- Student records are stored in the university’s SQL database, containing columns such as Student_ID, Student Name, and Major
+
+• unstructured
+
+- Unstructured data has no particular structure and is difficult to organize or categorize
+
+- This includes Text, images, audio, and video files
+
+- Example : Social media posts, email, images, audio recording.
+
+• metadata
+
+Metadata in this context refers to information about the healthcare data. It includes details such as data source, data format, data creation timestamp, patient ID, data quality, and more.
+
+• big data
+
+The healthcare system collects patient records, medical images, sensor data from wearable devices, electronic health records (EHRs), and more.
 # 2. Data Manipulation
 # 2.1 Import, store, and export data 
 # Fundamental understanding of ETL:
