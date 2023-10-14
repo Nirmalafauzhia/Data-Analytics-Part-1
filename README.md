@@ -253,13 +253,13 @@ Input:
          print("Truncated data:", truncated_data)
 # 2.4 Aggregate data
 # Purpose and common practices:
-# • grouping
+# - grouping
 - Grouping SUM is an aggregation function that calculates the sum of a specific numerical column within each group. When you group data by one or more columns, you can apply the SUM function to find the total sum of a particular numerical value for each group.
 - Grouping COUNT is an aggregation function that counts the number of rows within each group. It is used to determine how many items fall into each group.
 - Grouping AVG is an aggregation function that calculates the average (mean) of a specific numerical column within each group. This function provides the average value of the data in each group. 
-# • joining/merging 
+# - joining/merging 
 Combining data from multiple sources or tables using keys or common columns.
-# • summarizing
+# - summarizing
 Creating summary statistics or aggregations to get an overview of the data, such as calculating totals, averages, or counts.
-# • pivoting
+# - pivoting
 Restructuring data to transform rows into columns or vice versa, often used for creating summary tables or pivot tables.
