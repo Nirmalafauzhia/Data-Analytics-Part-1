@@ -3,6 +3,7 @@
 Data is a collection of facts, information, or values that are recorded, stored, or represented in various forms, such as numbers, text, images, sound, or other formats.
 # 1.2 Describe basic data variable types 
 • boolean
+
 In Python, the bool data type is used to represent boolean values (True, False). Booleans are used to evaluate expressions and return the boolean True or False based on the result of the expression.
 
 x = 10
@@ -10,12 +11,24 @@ x = 10
 y = 5
 
 result = x > y
+
 print(result)
+
 print(type(result))
 
 • numeric
 
+The numeric data type in Python represents the data that has a numeric value. A numeric value can be an integer, a floating number, or even a complex number. These values are defined as Python int, Python float, and Python complex classes in Python.
+
 • string
+
+In Python, the str data type is used to define text component enclosing a sequence of characters within single-quotes or double-quotes. Python strings can contain letters, numbers or special characters.
+
+platform = "JC Chouinard"
+
+print(type(platform))
+
+print(platform)
 # 1.3 Describe basic structures used in data analytics
 # • tables
 # • rows
