@@ -5,26 +5,25 @@ Data is a collection of facts, information, or values that are recorded, stored,
 # - boolean
 In Python, the bool data type is used to represent boolean values (True, False). Booleans are used to evaluate expressions and return the boolean True or False based on the result of the expression.
 
-x = 10
+         x = 10
 
-y = 5
+         y = 5
 
-result = x > y
+         result = x > y
 
-print(result)
+         print(result)
 
-print(type(result))
-
+         print(type(result))
 # - numeric
 The numeric data type in Python represents the data that has a numeric value. A numeric value can be an integer, a floating number, or even a complex number. These values are defined as Python int, Python float, and Python complex classes in Python.
 # - string
 In Python, the str data type is used to define text component enclosing a sequence of characters within single-quotes or double-quotes. Python strings can contain letters, numbers or special characters.
 
-platform = "JC Chouinard"
+         platform = "JC Chouinard"
 
-print(type(platform))
+         print(type(platform))
 
-print(platform)
+         print(platform)
 # 1.3 Describe basic structures used in data analytics
 # - tables
 Tables are used to structured data, it is essentially a two-dimensional structure with rows and columns.
@@ -61,17 +60,17 @@ Fundamental understanding of ETL (Extract, Transform, Load): ETL is a process us
 # - extract
 extract the file into .csv format
 
-df.to_csv("D:/MyEduSolve/tugas_cleansing.csv")
+         df.to_csv("D:/MyEduSolve/tugas_cleansing.csv")
 # - transform
-df['Referal'] = df['Referal'].astype(str)
+         df['Referal'] = df['Referal'].astype(str)
 
-df['Referal'] = df['Referal'].replace({'1.0': 'Use', '0.0': 'Not use'})
+         df['Referal'] = df['Referal'].replace({'1.0': 'Use', '0.0': 'Not use'})
 # - load
 load a CSV file containing datasets from online stores obtained from Kaggle
 
-df = pd.read_csv('online_store.csv')
+         df = pd.read_csv('online_store.csv')
 # - common data storage file formats (delimited data files, XML, JSON)
-df = pd.read_csv('online_store.csv')
+         df = pd.read_csv('online_store.csv')
 # 2.2 Clean data
 Purpose and common practices:
 # - handling NULL
@@ -81,21 +80,29 @@ example :
 
 Check data condition
 
-Input: df.info()
+Input: 
+
+         df.info()
 
 Display a visualization of the columns Age.
 
-Input: df.Age.plot(kind='hist')
+Input: 
+
+         df.Age.plot(kind='hist')
 
 Because the Age column has a skewness distribution. Then we will do imputation on the Age column using the median.
 
-Input: val = df.Age.median()
+Input: 
          
-          df['Age'] = df.Age.fillna(val)
+         val = df.Age.median()
+         
+         df['Age'] = df.Age.fillna(val)
 
 Display dataset info to see whether the Age column has been imputed
 
-Input: df.info()
+Input: 
+
+         df.info()
 # - special characters
 Removing or encoding special characters that can cause data processing issues.
 
@@ -103,13 +110,17 @@ example :
 
 You have the file name
 
-Input: df = pd.read_csv('online_store!!.csv')
+Input: 
+
+         df = pd.read_csv('online_store!!.csv')
 
 And the double exclamation mark special character (!!) can cause problems when trying to read or process such files. You can remove these special character to make the file name cleaner and more easily accessible.
 
 After removing special characters, the filename will become
 
-Input: df = pd.read_csv('online_store.csv')
+Input: 
+
+         df = pd.read_csv('online_store.csv')
 # - trimming spaces
 Trimming leading and trailing white spaces from text data to ensure consistency.
 
@@ -143,16 +154,17 @@ Filling in missing data with appropriate values based on rules or algorithms.
 
 example : 
 
-
-
 Input:     
-      df.Gender[df.Gender.isnull()]
-      df.Gender.value_counts() 
-      val = df.Gender.mode().values[0]
-      df['Gender'] = df.Gender.fillna(val)
-      df.Gender.value_counts()
-
-
+      
+         df.Gender[df.Gender.isnull()]
+      
+         df.Gender.value_counts() 
+      
+         val = df.Gender.mode().values[0]
+      
+         df['Gender'] = df.Gender.fillna(val)
+      
+         df.Gender.value_counts()
 # - validating data
 Checking data for correctness and validity to ensure it meets predefined criteria or constraints
 
@@ -160,14 +172,17 @@ example :
 
 Before starting validation, it is important to examine the data by understanding the structure, data types, and any potential problems. It can use the head(), info(), and describe() methods of pandas DataFrame for this purpose.
 Input:   
-      df.head()
-      df.info()
+      
+         df.head()
+         
+         df.info()
 
 Based on the results of the data inspection, it was found that the referral column used the float data type, this was deemed unsuitable, the data would be easier to understand if converted into a string, where "1.0" means using a referral code, while "0.0" means not using a code referral. This will help people who read the data so that it is easier to understand. (Data Type Validating)
 Input:  
-      df['Referal'] = df['Referal'].astype(str)
-      df['Referal'] = df['Referal'].replace({1.0: 'Use', 0.0: 'Not use'})
-
+      
+         df['Referal'] = df['Referal'].astype(str)
+         
+         df['Referal'] = df['Referal'].replace({1.0: 'Use', 0.0: 'Not use'})
 # 2.3 Organize data
 # Purpose and common practices:
 # • sorting
